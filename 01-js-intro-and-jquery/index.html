@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript - JQuery - Ajax</title>
+  <!--<script src="https://code.jquery.com/jquery-1.11.2.js"></script>-->
+  <script type="text/javascript" src="jquery-1.11.2.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+  /*------FADE---------*/
+  $(document).ready(function() {
+      $("section").fadeIn(1000);
+      $("section").promise().done(function(){
+        $(".alias").focus();
+      });    
+  });
+/*$(document).ready(function(){
+    $("button").click(function(){
+        $.get("http://bootcamp.aws.af.cm/welcome/tunombre", function(data, status){
+            alert( "success" );
+        });
+    });
+});*/
+
+/*LLAMO AL DOCUMENTO------------------------*/
+function loadXMLDoc()
+{
+
+var sectionColor = document.getElementById("section");
+if (document.getElementById('alias').value==""
+                 || document.getElementById('alias').value==undefined)
+                {
+                  sectionColor.style.backgroundColor = 'red';
+                }
+                else{
+                  sectionColor.style.backgroundColor = 'blue';
+                }
+
+var variable = document.getElementById("alias").value;
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("section").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","http://bootcamp.aws.af.cm/welcome/" + variable,true);
+xmlhttp.send();
+
+function color() { 
+}
+}/*-----------------------------------------------*/
+</script>
+</head>
+
+<body>
+<section id="section">HELLO WORLD</section>
+<div>
+  <button type="button" onclick="loadXMLDoc()">Check↑</button>
+</div>
+<br>
+<div>
+  <!--<textarea class="alias"></textarea>-->
+  <p>Insert your alias:</p>
+  <input id="alias" type="text" name="textBox" class="alias">
+</div>
+</body>
+</html>

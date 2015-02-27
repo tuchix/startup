@@ -10,6 +10,17 @@
 </head>
 
 <body>
+<script>
+/*------FADE---------*/
+	$(document).ready(function() {
+    	$("section").fadeIn(1000);
+   	 	$("section").promise().done(function(){
+       	 	$(".alias").focus();
+   		});   
+	});
+/*----*/
+});
+</script>
 <section id="section">HELLO WORLD</section>
 <div class="tweets">
 <aside class="sidebar"><button id="btn2" type="button"><h2>Tweets:</h2></button></aside>

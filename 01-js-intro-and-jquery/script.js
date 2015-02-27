@@ -1,12 +1,11 @@
-/*------FADE---------*/
-$(document).ready(function() {
-    $("section").fadeIn(1000);
-    $("section").promise().done(function(){
-        $(".alias").focus();
-    });   
-});
-/*----*/
 
+  $(document).ready(function() {
+      $("section").fadeIn(1000);
+      $("section").promise().done(function(){
+          $(".alias").focus();
+      });   
+  });
+  
 $(document).ready(function(){
     $("#btn1").click(function(){   
           var alias= $(".alias").val();

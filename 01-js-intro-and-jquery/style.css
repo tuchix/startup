@@ -15,10 +15,11 @@ section{
   font-size: 30px;
   padding: 23px;
 }
-button{
+#btn1{
   margin-top: 5px;
 	width: 200px;
 	height: 50px;
+  font-size: 15px;
 }
 div{
   width: 200px;
@@ -33,4 +34,20 @@ div{
 p{
   text-align: center;
   font-size: 25px;
+}
+.tweets{
+  font-size: 17px;
+  color: black;
+  float: right;
+  width: 500px;
+  height: 100%;
+  border: 5px solid gray;
+  background-color: rgba(136,231,252,0.4)  ;
+}
+#btn2{
+  font-size: 15px;
+  width: 200px;
+  color: white;
+  margin-bottom: 5px;
+  background-color: #3BB9FF;
 }

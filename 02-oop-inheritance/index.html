@@ -8,39 +8,45 @@
 <body>
 	<script type="text/javascript">
 	
-		var peli=new Movie("Die Hard");
-		var peli2=new Movie("Kill Bill")
-		var peli3=new Movie("Batman")
-		var actor=new Array("Bruce Willis", "Uma Thurman", "Michael Keaton")
-
-		function Movie(title) {
-    			this.title=title;
-    			/*var Observer=new MovieObserver();
-    			function MovieObserver(){
-					MovieObserver.stopped=function(){
-						console.log(this.title+" has stopped.")
-					}			
-				}*/
-    		}	
-
-			Movie.prototype.set= function(){				
-			}
-			Movie.prototype.get = function(){
-			}
-			Movie.prototype.play = function(){
-				console.log("The movie "+this.title+" is now playing.");
-			}
-			Movie.prototype.stop=function(){
-				MovieObserver.stopped();
-			}
-			Movie.prototype.actor=function(){
-				console.log(actor)
-			}
-			var Social={
-				Share:function(){
-				}
-			}
+		var peli=new Movie();
+		var actor=new Array("Michael Keaton", "Jack Nicholson", "Kim Basinger");
 		
+function Movie(){
+	this.attributes = {
+    	title : "Batman",
+    	director : "Tim Burton",
+    	actor : []
+	}
+}
+
+Movie.prototype.set=function(attr , value){
+    this.attributes[attr] = value;
+}
+
+Movie.prototype.get=function(){
+    console.log(this.attributes["title"]);
+    return this.attributes["title"];
+}
+
+Movie.prototype.play=function(){
+    console.log ("The movie "+this.attributes["title"]+" is now playing.");
+}
+
+Movie.prototype.stop=function(){
+    console.log ("The movie "+this.attributes["title"]+" has stopped.");
+}
+
+/*var MovieObserver=function(){
+
+}
+	MovieObserver.prototype.playing={
+		playing:function(){
+
+		}
+		stopped:function(){
+
+		}
+	}*/	
 		
 	</script>
 </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Movie Object</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		var peli=new Movie("Die Hard");
+		var peli2=new Movie("Kill Bill")
+		var peli3=new Movie("Batman")
+		var actor=new Array("Bruce Willis", "Uma Thurman", "Michael Keaton")
+
+		function Movie(title) {
+    			this.title=title;
+    			/*var Observer=new MovieObserver();
+    			function MovieObserver(){
+					MovieObserver.stopped=function(){
+						console.log(this.title+" has stopped.")
+					}			
+				}*/
+    		}	
+
+			Movie.prototype.set= function(){				
+			}
+			Movie.prototype.get = function(){
+			}
+			Movie.prototype.play = function(){
+				console.log("The movie "+this.title+" is now playing.");
+			}
+			Movie.prototype.stop=function(){
+				MovieObserver.stopped();
+			}
+			Movie.prototype.actor=function(){
+				console.log(actor)
+			}
+			var Social={
+				Share:function(){
+				}
+			}
+		
+		
+	</script>
+</body>
+</html>

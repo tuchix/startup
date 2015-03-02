@@ -1,12 +1,8 @@
-
-  $(document).ready(function() {
-      $("section").fadeIn(1000);
+$(document).ready(function(){
+  $("section").fadeIn(1000);
       $("section").promise().done(function(){
           $(".alias").focus();
-      });   
-  });
-  
-$(document).ready(function(){
+      }); 
     $("#btn1").click(function(){   
           var alias= $(".alias").val();
           $.get("http://bootcamp.aws.af.cm/welcome/"+alias, function(data, status){
@@ -17,10 +13,7 @@ $(document).ready(function(){
         }        
         });
     });
-});
-
-$(document).ready(function(){
-  $("#btn2").click(function(){
+      $("#btn2").click(function(){
       $.get("http://localhost:3000/search?q=html5", function(data, status){
         console.dir(data);
             for (item in data['statuses']){

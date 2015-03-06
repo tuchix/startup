@@ -1,18 +1,29 @@
-define(['movie','jquery'],function(movie){
-	alert("I´m director working!");
+define(['jquery'], function($){
 
-	var director=new Director();
-	function Director(){
-		this.attributes={
-			name:'Tim Burton',
-			quotes:["One person's crazyness is another person's reality."],
-		}
-			this.speak=function(){
-				$('#director').text(this.attributes.name);
-				$('#quote').text(this.attributes.quotes);
-				console.log(this.attributes["name"]+" quote: "+this.attributes["quotes"])
-		}
-	}
-	director.speak();
-	return director;
+    function Director(name){
+        this.name = name;
+        this.quotes = [];
+    }
+
+    Director.prototype = {
+
+      constructor: Director,
+
+      addQuote: function(text){
+        this.quotes.push(text);
+      },
+
+      //Using jQuery show Director quotes.
+      speak: function(){
+        var text = this.name + " says: ";
+        $.each(this.quotes, function(index, value){
+          text += value;
+        });
+        
+        console.log(text);
+        $('#quotes').text(text);
+      }
+    };
+
+    return Director;
 });

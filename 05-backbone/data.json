@@ -1,0 +1,26 @@
+directoryData = [
+	{
+		"ID": "1",
+		"title": "Jurassic Park",
+		"director": "Steven Spielberg",
+		"genre": "Adventure",
+	},
+	{
+		"ID": "1",
+		"title": "Star Wars",
+		"director": "Geroge Lucas",
+		"genre": "Sci-Fi",
+	},
+	{
+		"ID": "1",
+		"title": "Taxi Driver",
+		"director": "Martin Scorcese",
+		"genre": "Action",
+	},
+	{
+		"ID": "1",
+		"title": "Batman",
+		"director": "Tim Burton",
+		"genre": "Action",
+	},
+]

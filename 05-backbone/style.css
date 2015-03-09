@@ -1,0 +1,83 @@
+body {
+	background:#BCC6CC;
+	margin:0px;
+	padding:0px;
+	font-family:"Open Sans", sans-serif;
+}
+#wrapper {
+}
+h1 {
+	background-color: #2554C7;
+	margin:0px;
+	color:white;
+	padding:20px;
+	font-size: 40px;
+}
+.create {
+	padding:20px;
+}
+.btn{
+	margin-top: 5px;
+	font-size: 20px;
+	background-color: #2554C7;
+	color: white;
+	width: 200px;
+	height: 50px;
+}
+.btnOpcion{
+	margin-top: 5px;
+	font-size: 15px;
+	background-color: #2554C7;
+	color: white;
+	width: 80px;
+	height: 40px;
+}
+.panel-heading{
+	border: 5px solid #737CA1;
+	padding: 20px;
+	width: 165px;
+	font-size: 20px;
+	color: #737CA1;
+	text-align: center;
+	font-weight: bold;
+}
+.form-group{
+width: 100px;
+}
+.inputText{
+	width: 200px;
+	height: 30px;
+}
+ul#listing {
+	list-style:none;
+	padding:0px;
+	margin:0px;
+	background:#fff;
+	width:100%;
+}
+ul#listing li {
+	list-style:none;
+	border-bottom:1px solid #eee;
+	display:block;
+}
+ul#listing li .list-header {
+	padding:10px;
+	cursor:pointer;
+	display:block;
+	font-size:25px;
+}
+
+ul#listing li .list-header:hover {
+	background:#7893AB;
+	color:#fff;
+}
+ul#listing li .list-header.active {
+	background:#447BAB;
+	color:#fff;
+}
+ul#listing li .details {
+	display:none;
+	background:#efefef;
+	padding:20px;
+	font-size:0.9em;
+}

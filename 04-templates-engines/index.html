@@ -1,89 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<script type="text/javascript" src="libs/handlebars-v3.0.0.js"></script>
-	<script type="text/javascript" src="libs/underscore.js"></script>
-	<script type="text/javascript" src="libs/dust-full-0.3.0.min.js"></script> 
-	<script type="text/javascript" src="jquery-1.11.2.js"></script>
-	<script type="text/javascript" src="json.js"></script>
-	<link href="style.css" rel="stylesheet">
-	<title>Template Engines</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="libs/handlebars-v3.0.0.js"></script>
+    <script type="text/javascript" src="libs/underscore.js"></script>
+    <script type="text/javascript" src="libs/dust-full-0.3.0.min.js"></script>
+    <script type="text/javascript" src="jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="json.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <title>Template Engines</title>
 </head>
+
 <body>
-<h1>Professional Profile</h1>
-<div class="temp">JavaScript:</div>
-<div id="container1">
-<div>
-	<h2>About Me</h2>
-	<p id="name"></p>
-</div>
-<div>
-	<h2>Education</h2>
-	<p id="education"></p>
-</div>
-<div>
-	<h2>Experience</h2>
-	<p id="experience"></p>
-</div>
-<div>
-	<h2>Courses</h2>
-	<p id="courses"></p>
-</div>
-</div>         
+    <h1>Professional Profile</h1>
+    <div class="temp">JavaScript:</div>
+    <div id="container1">
+        <div>
+            <h2>About Me</h2>
+            <p id="name"></p>
+        </div>
+        <div>
+            <h2>Education</h2>
+            <p id="education"></p>
+        </div>
+        <div>
+            <h2>Experience</h2>
+            <p id="experience"></p>
+        </div>
+        <div>
+            <h2>Courses</h2>
+            <p id="courses"></p>
+        </div>
+    </div>
 
-<!--******************With HANDLEBARS************************ -->
-<div class="temp">Handlebars:</div>
-<div id="container2">
+    <!--******************With HANDLEBARS************************ -->
+    <div class="temp">Handlebars:</div>
+    <div id="container2">
+    </div>
+    <script id="plantilla2" type="text/x-handlebars-template">
+        {{#Profile}}
+            <h2>About Me</h2>
+            <div>{{nombre}}</div>
 
-</div>
-<script id="plantilla2" type="text/x-handlebars-template">
-<h2>About Me</h2>
-    {{#Profile}}   
-        <div>{{nombre}}</div>      
-    {{/Profile}}
-<h2>Education</h2>
-    {{#Profile}}   
-        <div>{{education}}</div>
-    {{/Profile}}
-<h2>Experience</h2>
-    {{#Profile}}   
-        <div>{{experience}}</div>
-    {{/Profile}}
-<h2>Courses</h2>
-    {{#Profile}}   
-        <div>{{courses}}</div>
-    {{/Profile}}
-</script>
-<!--******************With DUST************************ -->
-<div class="temp">Dust:</div>
-<div id="container4">
-</div>
-<script id="plantilla4" type="text/x-dust-template">
-<h2>About Me</h2> 
-        <div>{#Profile}{nombre}{/Profile}</div>      
-<h2>Education</h2> 
-        <div>{#Profile}{education}{/Profile}</div>
-<h2>Experience</h2> 
-        <div>{#Profile}{experience}{/Profile}</div>
-<h2>Courses</h2>
-        <div>{#Profile}{courses}{/Profile}</div>
-</script>
-<!--******************With UNDERSCORE************************ -->
-<div class="temp">Underscore:</div>
+            <h2>Education</h2>
+            <div>{{education}}</div>
 
-<script id="plantilla3" type="text/x-underscore-template">
-<div id="container3">
-<h2>About Me</h2> 
-        <div><%=Profile.nombre%></div>      
-<h2>Education</h2> 
-        <div><%=Profile.education%></div>
-<h2>Experience</h2> 
-        <div><%=Profile.experience%></div>
-<h2>Courses</h2>
-        <div><%=Profile.courses%></div>
-</div>
-</script>
+            <h2>Experience</h2>
+            <ul>
+                {{#each experience}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+
+            <h2>Courses</h2>
+            <div>{{courses}}</div>
+        {{/Profile}}
+    </script>
+    <!--******************With DUST************************ -->
+    <div class="temp">Dust:</div>
+    <div id="container4">
+    </div>
+    <script id="plantilla4" type="text/x-dust-template">
+        {#Profile}
+            <h2>About Me</h2>
+            <div>{nombre}</div>
+
+            <h2>Education</h2>
+            <div>{education}</div>
+
+            <h2>Experience</h2>
+            <ul>
+                {#experience}
+                    <li>{.}</li>
+                {/experience}
+            </ul>
+
+            <h2>Courses</h2>
+            <div>{courses}</div>
+        {/Profile}
+    </script>
+    <!--******************With UNDERSCORE************************ -->
+    <div class="temp">Underscore:</div>
+
+    <script id="plantilla3" type="text/x-underscore-template">
+        <div id="container3">
+            <h2>About Me</h2>
+            <div>
+                <%=Profile.nombre%>
+            </div>
+            <h2>Education</h2>
+            <div>
+                <%=Profile.education%>
+            </div>
+            <h2>Experience</h2>
+            <ul>
+                <% _.each(Profile.experience, function(item) { %>
+                    <li><%= item %></li>
+                <% });%>
+            </ul>
+            <h2>Courses</h2>
+            <div>
+                <%=Profile.courses%>
+            </div>
+        </div>
+    </script>
 </body>
+
 </html>

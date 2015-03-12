@@ -1,27 +1,99 @@
 <!DOCTYPE html>
 <html lan="eng">
+
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript">
-	function start(){
-		var element=document.getElementById("lienzo");
-		lienzo=element.getContext("2d");
-		lienzo.beginPath();
-		lienzo.rect(50,50,100,100);
-		lienzo.arc(300,300,100,0,2*Math.PI);
-		lienzo.fillStyle='#' + Math.random().toString(16).substring(2, 8);
-		lienzo.fill();
-		lienzo.lineWidth = 5;
-      	lienzo.strokeStyle = '#' + Math.random().toString(16).substring(2, 8);
-      	lienzo.stroke();
-	}
-		window.addEventListener("load", start, false);
-	</script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+    function start() {
+        //-------------------Circulo------------------------//
+        var element = document.getElementById("lienzo");
+        cuadrado = element.getContext("2d");
+        cuadrado.beginPath();
+        cuadrado.arc(500, 200, 100, 0, 2 * Math.PI);
+        cuadrado.fillStyle = '#' + Math.random().toString(16).substring(2, 8);
+        cuadrado.fill();
+        cuadrado.lineWidth = 5;
+        cuadrado.strokeStyle = '#' + Math.random().toString(16).substring(2, 8);
+        cuadrado.stroke();
+
+        //-------------------Cuadrado------------------------//
+        lienzo = element.getContext("2d");
+        lienzo.beginPath();
+        lienzo.rect(100, 100, 200, 200);
+        lienzo.fillStyle = '#' + Math.random().toString(16).substring(2, 8);
+        lienzo.fill();
+        lienzo.lineWidth = 5;
+        lienzo.strokeStyle = '#' + Math.random().toString(16).substring(2, 8);
+        lienzo.stroke();
+
+        window.requestAnimFrame = (function(callback) {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+                function(callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+
+        function drawRectangle(myRectangle, context) {
+            context.beginPath();
+            context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
+            context.fillStyle = '#00FFFF';
+            context.fill();
+            context.lineWidth = myRectangle.borderWidth;
+            context.strokeStyle = ' #3B9C9C';
+            context.stroke();
+        }
+
+        function animate(myRectangle, canvas, context, startTime) {
+            // update
+            var time = (new Date()).getTime() - startTime;
+
+            var linearSpeed = 100;
+            // pixels / second
+            var newX = linearSpeed * time / 1000;
+
+            if (newX < canvas.width - myRectangle.width - myRectangle.borderWidth / 2) {
+                myRectangle.x = newX;
+            }
+
+            // clear
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawRectangle(myRectangle, context);
+
+            // request new frame
+            requestAnimFrame(function() {
+                animate(myRectangle, canvas, context, startTime);
+            });
+        }
+        var canvas = document.getElementById('lienzo2');
+        var context = canvas.getContext('2d');
+
+        var myRectangle = {
+            x: 0,
+            y: 50,
+            width: 200,
+            height: 100,
+            borderWidth: 5
+        };
+
+        drawRectangle(myRectangle, context);
+
+        // wait one second before starting animation
+        setTimeout(function() {
+            var startTime = (new Date()).getTime();
+            animate(myRectangle, canvas, context, startTime);
+        }, 0);
+    }
+    window.addEventListener("load", start, false);
+    </script>
 </head>
+
 <body>
-	<section id="canvas">
-		<canvas id="lienzo" width="800" height="500"></canvas>
-	</section>
+    <section id="canvas">
+        <canvas id="lienzo" width="800" height="500"></canvas>
+        <canvas id="lienzo2" width="800" height="200"></canvas>
+    </section>
 </body>
+
 </html>

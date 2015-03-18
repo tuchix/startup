@@ -1,0 +1,91 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 5px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background-color: #A0CFEC;
+}
+
+.tracks {
+    display: inline-block;
+    margin: 2px;
+}
+
+.tracks:hover {
+    border: 5px solid red;
+}
+ul{
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+}
+#Create {
+    color: white;
+    background-color: #1589FF;
+    padding: 10px;
+    display: inline-block;  
+}
+.description {
+    padding: 10px;
+    background-color: #85BB65;
+    display: inline-block;
+}
+.description button{
+    background-color: #3EA055;
+}
+
+button {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    height: 50px;
+    width: 170px;
+    font-size: 25px;
+    background-color: #2554C7;
+    color: white;
+}
+
+h1 {
+    background-color: #2554C7;
+    margin: 0px;
+    margin-bottom: 5px;
+    color: white;
+    padding: 20px;
+    font-size: 40px;
+}
+
+#content {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.input {
+    font-size: 20px;
+    height: 50px;
+    width: 170px;
+}
+
+#resultados {
+    margin-top: 5px;
+    font-size: 20px;
+    color: #565051;
+}
+
+#trackTitle {
+    background-color: #1589FF;
+    color: white;
+    height: 40px;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+#list {
+    height: 50px;
+    width: 170px;
+    font-size: 20px;
+}
